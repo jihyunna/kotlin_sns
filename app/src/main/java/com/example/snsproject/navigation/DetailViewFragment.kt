@@ -92,7 +92,44 @@ class DetailViewFragment : Fragment() {
             //likes
             viewholder.detailviewitem_favoritecounter_textview.text = "Likes " + contentDTOs!![position].favoriteCount
 
-            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(viewholder.detailviewitem_imageview_content)
+            viewholder.detailviewitem_favorite_imageview.setOnClickListener{
+                favoriteEvent(position)
+            }
+
+            if(contentDTOs!![position].favorites.containsKey(uid)){
+                //This is like status
+                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite)
+
+            }else{
+                //This is unlike status
+                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite_border)
+            }
+
+        }
+        fun favoriteEvent(position : Int){
+            var tsDoc = firestore?.collection("images")?.document(contentUidList[position])
+            firestore?.runTransaction { transaction ->
+
+
+                var contentDTO = transaction.get(tsDoc!!).toObject(ContentDTO::class.java)
+
+                if(contentDTO!!.favorites.containsKey(uid)){
+                    //When the button is clicked
+                    contentDTO?.favoriteCount = contentDTO?.favoriteCount - 1
+                    contentDTO?.favorites.remove(uid)
+                }else{
+                    //When the button is not clicked
+                    contentDTO?.favoriteCount = contentDTO?.favoriteCount + 1
+                    contentDTO?.favorites[uid!!] = true
+                    //favoriteAlarm(contentDTOs[position].uid!!)
+
+                }
+                transaction.set(tsDoc,contentDTO)
+            }
+
+
+
+
 
         }
 
