@@ -46,13 +46,15 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             finish()
         }
 
-        binding.signout.setOnClickListener {
-            Firebase.auth.signOut()
-            startActivity(
-                Intent(this, LoginActivity::class.java)
-            )
-            finish()
-        }
+//        binding.signout.setOnClickListener {
+//            Firebase.auth.signOut()
+//            startActivity(
+//                Intent(this, LoginActivity::class.java)
+//            )
+//            finish()
+//        }
+
+        binding.bottomNavigation.selectedItemId=R.id.action_home
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

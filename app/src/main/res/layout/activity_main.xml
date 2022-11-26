@@ -53,14 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/nav_division"
-        android:layout_below="@+id/toolbar_division">
-
-        <Button
-            android:id="@+id/signout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </FrameLayout>
+        android:layout_below="@+id/toolbar_division"/>
     <LinearLayout
         android:id="@+id/nav_division"
         android:background="@color/colorDivision"

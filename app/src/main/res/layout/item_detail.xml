@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
     <ImageView
         android:id="@+id/detailviewitem_imageview_content"
         android:scaleType="fitXY"
@@ -41,6 +42,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"/>
     </LinearLayout>
+
     <TextView
         android:id="@+id/detailviewitem_favoritecounter_textview"
         android:text="like 0"
