@@ -1,5 +1,6 @@
 package com.example.snsproject.navigation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,22 +60,7 @@ class DetailViewFragment : Fragment() {
             return CustomViewHolder(binding)
         }
 
-        inner class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//            val postUserText = itemView.findViewById<TextView>(R.id.detailviewitem_profile_textview)
-//            val postMainImage = itemView.findViewById<ImageView>(R.id.detailviewitem_imageview_content)
-//            val postExplain = itemView.findViewById<TextView>(R.id.detailviewitem_explain_textview)
-//            val likeCount = itemView.findViewById<TextView>(R.id.detailviewitem_favoritecounter_textview)
-//
-//            fun bind(){
-//                val pos = adapterPosition
-//
-//                if(pos!=RecyclerView.NO_POSITION){
-//                    itemView.setOnClickListener{
-//                        itemClick?.onItemClick(itemView,contentDTOs[pos],pos)
-//                    }
-//                }
-//            }
-        }
+        inner class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
         override fun getItemCount(): Int {
             return contentDTOs.size
@@ -117,12 +103,12 @@ class DetailViewFragment : Fragment() {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_content, fragment)?.commit()
             }
-//            viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
-//                var intent = Intent(v.context,CommentActivity::class.java)
-//                intent.putExtra("contentUid",contentUidList[p1])
-//                intent.putExtra("destinationUid",contentDTOs[p1].uid)
-//                startActivity(intent)
-//            }
+            viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
+                var intent = Intent(v.context,CommentActivity::class.java)
+                intent.putExtra("contentUid",contentUidList[position])
+                intent.putExtra("destinationUid",contentDTOs[position].uid)
+                startActivity(intent)
+            }
         }
 
         fun favoriteEvent(position : Int){
