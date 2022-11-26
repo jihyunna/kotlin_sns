@@ -10,6 +10,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"로그인 실패"</string>
+    <string name="signout">Signout</string>
 
     <string name="facebook_app_id">592638904497102</string>
     <string name="fb_login_protocol_scheme">fb592638904497102</string>

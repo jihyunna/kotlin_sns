@@ -86,26 +86,45 @@ class DetailViewFragment : Fragment() {
             //UserId
             viewholder.detailviewitem_profile_textview.text = contentDTOs!![position].userId
             //Image
-            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(viewholder.detailviewitem_imageview_content)
+            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl)
+                .into(viewholder.detailviewitem_imageview_content)
             //Explain of content
             viewholder.detailviewitem_explain_textview.text = contentDTOs!![position].explain
             //likes
-            viewholder.detailviewitem_favoritecounter_textview.text = "Likes " + contentDTOs!![position].favoriteCount
+            viewholder.detailviewitem_favoritecounter_textview.text =
+                "Likes " + contentDTOs!![position].favoriteCount
 
-            viewholder.detailviewitem_favorite_imageview.setOnClickListener{
+            viewholder.detailviewitem_favorite_imageview.setOnClickListener {
                 favoriteEvent(position)
             }
 
-            if(contentDTOs!![position].favorites.containsKey(uid)){
+            if (contentDTOs!![position].favorites.containsKey(uid)) {
                 //This is like status
                 viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite)
 
-            }else{
+            } else {
                 //This is unlike status
                 viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite_border)
             }
 
+            //This code is when the profile image is clicked
+            viewholder.detailviewitem_profile_image.setOnClickListener {
+                var fragment = UserFragment()
+                var bundle = Bundle()
+                bundle.putString("destinationUid", contentDTOs[position].uid)
+                bundle.putString("userId", contentDTOs[position].userId)
+                fragment.arguments = bundle
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.main_content, fragment)?.commit()
+            }
+//            viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
+//                var intent = Intent(v.context,CommentActivity::class.java)
+//                intent.putExtra("contentUid",contentUidList[p1])
+//                intent.putExtra("destinationUid",contentDTOs[p1].uid)
+//                startActivity(intent)
+//            }
         }
+
         fun favoriteEvent(position : Int){
             var tsDoc = firestore?.collection("images")?.document(contentUidList[position])
             firestore?.runTransaction { transaction ->
