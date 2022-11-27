@@ -38,7 +38,8 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/comment_recyclerview"
         android:layout_margin="10dp"
-        android:text="@string/send"
+        android:backgroundTint="#979A9A9A"
+        android:text="댓글 달기"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <EditText
