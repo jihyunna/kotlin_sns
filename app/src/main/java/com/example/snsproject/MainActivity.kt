@@ -105,5 +105,4 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         toolbar_btn_back.visibility = View.GONE
         toolbar_title_image.visibility = View.VISIBLE
     }
-
 }
