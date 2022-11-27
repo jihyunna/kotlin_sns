@@ -30,9 +30,9 @@
     <string name="count_0">0</string>
 
     <!-- Alarm -->
-    <string name="alarm_favorite"> 님이 회원님의 게시물을 좋아합니다</string>
-    <string name="alarm_comment"> 님이 댓글을 달았습니다</string>
-    <string name="alarm_follow"> 님이 회원님을 팔로우 하였습니다</string>
+    <string name="alarm_favorite"> 님이 회원님의 게시물을 좋아합니다 </string>
+    <string name="alarm_comment"> 님이 댓글을 달았습니다 </string>
+    <string name="alarm_follow"> 님이 회원님을 팔로우 하였습니다 </string>
 
     <!-- Comment -->
     <string name="send">Send</string>
