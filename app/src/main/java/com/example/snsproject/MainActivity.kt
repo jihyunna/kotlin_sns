@@ -72,11 +72,8 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                 supportFragmentManager.beginTransaction().replace(R.id.main_content,detailViewFragment).commit()
                 return true
             }
-            R.id.action_search -> {
-                var gridFragment = GridFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content,gridFragment).commit()
-                return true
-            }
+
+
             R.id.action_add_photo -> {
                 //if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
                     startActivity(Intent(this, PostingActivity::class.java))

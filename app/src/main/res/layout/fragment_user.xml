@@ -40,8 +40,8 @@
 
         <Button
             android:id="@+id/account_btn_follow_signout"
-            android:layout_width="261dp"
-            android:layout_height="38dp"
+            android:layout_width="267dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="23dp"
             android:layout_toRightOf="@+id/account_iv_profile"
