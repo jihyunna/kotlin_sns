@@ -15,47 +15,60 @@
             android:layout_height="match_parent"
             android:src="@drawable/logo_title" />
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/toolbar_division"
         android:background="@color/colorDivision"
         android:layout_below="@+id/my_toolbar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="1dp"></LinearLayout>
+        android:layout_height="1dp">
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/addphoto_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="390dp"
+        android:layout_height="390dp"
         android:layout_below="@+id/toolbar_division"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText"
-        android:layout_below="@+id/toolbar_division"
-        android:layout_toRightOf="@+id/addphoto_image"
+        android:layout_below="@+id/addphoto_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:gravity="top"
             android:id="@+id/addphoto_edit_explain"
-            android:hint="@string/hint_image_content"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp"
+            android:layout_below="@+id/addphoto_image"
+            android:gravity="top"
+            android:hint="내용을 입력하세요" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/addphoto_btn_upload"
-        android:text="@string/upload_image"
-        android:layout_toRightOf="@+id/addphoto_image"
-        android:layout_below="@+id/editText"
-        android:theme="@style/ButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+
+        android:backgroundTint="#979A9A9A"
+        android:text="업로드 하기"
+        android:theme="@style/ButtonStyle" />
+
+    <Button
+        android:id="@+id/addphoto_btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addphoto_btn_upload"
+
+        android:backgroundTint="#979A9A9A"
+        android:text="업로드 취소"
+        android:theme="@style/ButtonStyle" />
 
 </RelativeLayout>

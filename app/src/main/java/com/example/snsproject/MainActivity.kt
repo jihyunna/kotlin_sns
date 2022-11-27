@@ -6,19 +6,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 import com.example.snsproject.databinding.ActivityMainBinding
-import com.example.snsproject.navigation.AlarmFragment
 import com.example.snsproject.navigation.DetailViewFragment
-import com.example.snsproject.navigation.GridFragment
 import com.example.snsproject.navigation.UserFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.Manifest
 import android.content.pm.PackageManager
-import android.os.Build
 import android.view.Menu
 import android.view.View
-import android.view.WindowManager
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.ktx.auth
@@ -49,7 +44,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         binding.bottomNavigation.selectedItemId = R.id.action_home
 
 
-
         // login
         if (Firebase.auth.currentUser == null) {
             startActivity(
@@ -57,15 +51,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             )
             finish()
         }
-
-//        binding.signout.setOnClickListener {
-//            Firebase.auth.signOut()
-//            startActivity(
-//                Intent(this, LoginActivity::class.java)
-//            )
-//            finish()
-//        }
-
         binding.bottomNavigation.selectedItemId=R.id.action_home
     }
 
@@ -82,22 +67,20 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                 supportFragmentManager.beginTransaction().replace(R.id.main_content,detailViewFragment).commit()
                 return true
             }
-            R.id.action_search -> {
-                var gridFragment = GridFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content,gridFragment).commit()
-                return true
-            }
+//            R.id.action_search -> {
+//                var gridFragment = GridFragment()
+//                supportFragmentManager.beginTransaction().replace(R.id.main_content,gridFragment).commit()
+//                return true
+//            }
             R.id.action_add_photo -> {
-                //if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
                     startActivity(Intent(this, PostingActivity::class.java))
-                //}
                 return true
             }
-            R.id.action_favorite_alarm -> {
-                var alarmFragment = AlarmFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content,alarmFragment).commit()
-                return true
-            }
+//            R.id.action_favorite_alarm -> {
+//                var alarmFragment = AlarmFragment()
+//                supportFragmentManager.beginTransaction().replace(R.id.main_content,alarmFragment).commit()
+//                return true
+//            }
             R.id.action_account -> {
                 var userFragment = UserFragment()
                 var bundle = Bundle()
@@ -110,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         }
         return false
     }
-    fun setToolbarDefault(){
+    private fun setToolbarDefault(){
         toolbar_username.visibility = View.GONE
         toolbar_btn_back.visibility = View.GONE
         toolbar_title_image.visibility = View.VISIBLE

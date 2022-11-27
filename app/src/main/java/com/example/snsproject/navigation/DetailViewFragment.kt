@@ -86,6 +86,7 @@ class DetailViewFragment : Fragment() {
             viewholder.detailviewitem_favorite_imageview.setOnClickListener {
                 favoriteEvent(position)
             }
+
             if (contentDTOs!![position].favorites.containsKey(uid)) {
                 viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite)
             } else {
