@@ -3,17 +3,15 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">로그인</string>
-    <string name="action_sign_up">회원가입</string>
-    <string name="action_sign_out">로그아웃</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="action_sign_up">Sing up</string>
+    <string name="action_sign_out">Log out</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"로그인 실패"</string>
     <string name="signout">Signout</string>
 
-    <string name="facebook_app_id">592638904497102</string>
-    <string name="fb_login_protocol_scheme">fb592638904497102</string>
 
     <!-- Bottom Navigation View -->
     <string name="home">home</string>
