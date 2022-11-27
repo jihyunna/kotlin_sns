@@ -14,8 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.view.Menu
 import android.view.View
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.ktx.auth
@@ -33,12 +36,19 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
         binding.bottomNavigation.setOnItemSelectedListener(this)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
         binding.bottomNavigation.selectedItemId = R.id.action_home
+
+
 
         // login
         if (Firebase.auth.currentUser == null) {
@@ -80,7 +90,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             R.id.action_add_photo -> {
                 //if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
                     startActivity(Intent(this, PostingActivity::class.java))
-               // }
+                //}
                 return true
             }
             R.id.action_favorite_alarm -> {
