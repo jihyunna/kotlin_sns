@@ -6,15 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="PostingActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="35dp">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/logo_title" />
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/toolbar_division"
         android:background="@color/colorDivision"
@@ -56,6 +59,7 @@
         android:layout_below="@+id/editText"
         android:theme="@style/ButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="#979A9A9A"/>
 
 </RelativeLayout>

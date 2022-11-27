@@ -25,7 +25,7 @@
             <TextView
                 android:text="UserID"
                 android:textSize="16sp"
-                android:textColor="@color/colorNavIcon"
+                android:textColor="@color/colorLightGray"
                 android:gravity="center"
                 android:layout_toRightOf="@+id/toolbar_btn_back"
                 android:id="@+id/toolbar_username"
@@ -67,7 +67,10 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/menu">
+        app:menu="@menu/menu"
+        app:itemIconTint="@drawable/menu_selector_color"
+        app:itemTextColor="@drawable/menu_selector_color"
+        app:layout_constraintBottom_toBottomOf="parent">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

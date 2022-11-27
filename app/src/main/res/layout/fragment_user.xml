@@ -1,86 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="203dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/logo_title" />
+
+      
+
+        <LinearLayout
+            android:id="@+id/toolbar_division"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginBottom="58dp"
+            android:background="@color/colorDivision"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/account_iv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="119dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_account"
-            android:layout_width="100dp"
-            android:layout_height="100dp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="36dp"
+            android:src="@drawable/ic_account" />
+
         <Button
             android:id="@+id/account_btn_follow_signout"
-            android:text="@string/follow"
-            android:layout_toRightOf="@+id/account_iv_profile"
+            android:layout_width="261dp"
+            android:layout_height="38dp"
             android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"/>
-        <LinearLayout
-            android:gravity="center"
+            android:layout_marginLeft="23dp"
             android:layout_toRightOf="@+id/account_iv_profile"
+            android:backgroundTint="#979A9A9A"
+            android:text="@string/follow" />
+
+        <LinearLayout
+            android:layout_width="310dp"
+            android:layout_height="104dp"
             android:layout_above="@+id/account_btn_follow_signout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="59dp"
+            android:layout_toRightOf="@+id/account_iv_profile"
+            android:gravity="center">
+
             <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
+
                 <TextView
-                    android:text="@string/post"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/post" />
+
                 <TextView
                     android:id="@+id/account_tv_post_count"
-                    android:text="@string/count_0"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0" />
             </LinearLayout>
+
             <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
+
                 <TextView
-                    android:text="@string/follower"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/follower" />
+
                 <TextView
                     android:id="@+id/account_tv_follower_count"
-                    android:text="@string/count_0"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0" />
             </LinearLayout>
+
             <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
+
                 <TextView
-                    android:text="@string/following"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/following" />
+
                 <TextView
                     android:id="@+id/account_tv_following_count"
-                    android:text="@string/count_0"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0" />
             </LinearLayout>
         </LinearLayout>
 
 
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/account_reyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
