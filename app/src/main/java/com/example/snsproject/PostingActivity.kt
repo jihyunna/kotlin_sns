@@ -47,7 +47,6 @@ class PostingActivity : AppCompatActivity() {
             startActivity(
                 Intent(this, DetailViewFragment::class.java)
             )
-
         }
     }
 

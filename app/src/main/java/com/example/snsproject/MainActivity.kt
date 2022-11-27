@@ -15,6 +15,7 @@ import android.content.pm.PackageManager
 import android.view.Menu
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.example.snsproject.navigation.AlarmFragment
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -76,11 +77,11 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                     startActivity(Intent(this, PostingActivity::class.java))
                 return true
             }
-//            R.id.action_favorite_alarm -> {
-//                var alarmFragment = AlarmFragment()
-//                supportFragmentManager.beginTransaction().replace(R.id.main_content,alarmFragment).commit()
-//                return true
-//            }
+            R.id.action_favorite_alarm -> {
+                var alarmFragment = AlarmFragment()
+               supportFragmentManager.beginTransaction().replace(R.id.main_content,alarmFragment).commit()
+                return true
+           }
             R.id.action_account -> {
                 var userFragment = UserFragment()
                 var bundle = Bundle()
@@ -98,5 +99,4 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         toolbar_btn_back.visibility = View.GONE
         toolbar_title_image.visibility = View.VISIBLE
     }
-
 }
