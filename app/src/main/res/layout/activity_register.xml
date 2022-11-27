@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.721" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/signup"
         android:layout_width="331dp"
         android:layout_height="59dp"
         android:layout_gravity="start"
@@ -34,7 +34,7 @@
         android:backgroundTint="#979A9A9A"
         android:enabled="true"
         android:padding="15dp"
-        android:text="@string/action_sign_in"
+        android:text="@string/action_sign_up"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:cornerRadius="5dp"
@@ -83,7 +83,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
-
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="2dp"
@@ -98,9 +97,8 @@
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/login"
         android:layout_width="331dp"
         android:layout_height="58dp"
         android:layout_gravity="start"
@@ -110,7 +108,7 @@
         android:layout_marginBottom="64dp"
         android:backgroundTint="#979A9A9A"
         android:enabled="true"
-        android:text="@string/action_sign_up"
+        android:text="@string/action_sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,13 +120,16 @@
         android:layout_width="0dp"
         android:layout_height="1.5dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
         android:layout_weight="1"
         android:background="#e2e2e2"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/signup"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -136,11 +137,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
         android:layout_marginTop="500dp"
-        android:text="Don't have an account?"
+        android:text="Do you have an account?"
         android:textColor="#9a9a9a"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/loading"
         app:layout_constraintTop_toTopOf="@+id/loading" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

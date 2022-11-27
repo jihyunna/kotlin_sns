@@ -20,11 +20,10 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.password.text.toString()
             doLogin(userEmail, password)
         }
-
         binding.signup.setOnClickListener {
-            val userEmail = binding.username.text.toString()
-            val password = binding.password.text.toString()
-            doSignup(userEmail, password)
+            startActivity(
+                Intent(this, RegisterActivity::class.java)
+            )
         }
     }
 
@@ -40,22 +39,6 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Log.w("LoginActivity", "signInWithEmail", it.exception)
                     Toast.makeText(this, "아이디 혹은 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    private fun doSignup(userEmail:String, password:String){
-
-        Firebase.auth.createUserWithEmailAndPassword(userEmail, password)
-            .addOnCompleteListener(this) { // it: Task<AuthResult!>
-                if (it.isSuccessful) {
-                    startActivity(
-                        Intent(this, MainActivity::class.java)
-                    )
-                    finish()
-                } else {
-                    Log.w("LoginActivity", "signUpWithEmail", it.exception)
-                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }

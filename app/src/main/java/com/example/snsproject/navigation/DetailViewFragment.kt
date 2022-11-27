@@ -17,6 +17,7 @@ import com.example.snsproject.databinding.FragmentDetailBinding
 import com.example.snsproject.navigation.model.AlarmDTO
 import com.example.snsproject.navigation.util.FcmPush
 import com.google.api.Billing.BillingDestination
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.item_detail.view.*
 
@@ -26,18 +27,26 @@ class DetailViewFragment : Fragment() {
     var uid : String? = null
     lateinit var binding: FragmentDetailBinding
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentDetailBinding.inflate(inflater,container,false)
 
+
         firestore = FirebaseFirestore.getInstance()
         uid = FirebaseAuth.getInstance().currentUser?.uid
+
+//        val layoutManager = LinearLayoutManager(activity)
+//        layoutManager.reverseLayout = true
+//        layoutManager.stackFromEnd = true
 
         binding.detailviewfragmentRecyclerview.adapter = DetailViewRecyclerViewAdapter()
         binding.detailviewfragmentRecyclerview.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
     }
+
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var contentDTOs : ArrayList<ContentDTO> = arrayListOf()
         var contentUidList : ArrayList<String> = arrayListOf()
@@ -72,31 +81,22 @@ class DetailViewFragment : Fragment() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
             var viewholder = (holder as CustomViewHolder).itemView
-            //UserId
-            viewholder.detailviewitem_profile_textview.text = contentDTOs!![position].userId
-            //Image
-            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl)
-                .into(viewholder.detailviewitem_imageview_content)
-            //Explain of content
-            viewholder.detailviewitem_explain_textview.text = contentDTOs!![position].explain
-            //likes
-            viewholder.detailviewitem_favoritecounter_textview.text =
-                "Likes " + contentDTOs!![position].favoriteCount
 
+            viewholder.detailviewitem_profile_textview.text = contentDTOs!![position].userId
+            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(viewholder.detailviewitem_imageview_content)
+            viewholder.detailviewitem_explain_textview.text = contentDTOs!![position].explain
+            viewholder.detailviewitem_favoritecounter_textview.text = "  좋아요 " + contentDTOs!![position].favoriteCount
             viewholder.detailviewitem_favorite_imageview.setOnClickListener {
                 favoriteEvent(position)
             }
 
             if (contentDTOs!![position].favorites.containsKey(uid)) {
-                //This is like status
                 viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite)
-
             } else {
-                //This is unlike status
                 viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite_border)
             }
 
-            //This code is when the profile image is clicked
+            // 프로필 사진 클릭했을 때
             viewholder.detailviewitem_profile_image.setOnClickListener {
                 var fragment = UserFragment()
                 var bundle = Bundle()
@@ -106,6 +106,7 @@ class DetailViewFragment : Fragment() {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_content, fragment)?.commit()
             }
+
             viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
                 var intent = Intent(v.context,CommentActivity::class.java)
                 intent.putExtra("contentUid",contentUidList[position])
@@ -117,6 +118,7 @@ class DetailViewFragment : Fragment() {
         fun favoriteEvent(position : Int){
             var tsDoc = firestore?.collection("images")?.document(contentUidList[position])
             firestore?.runTransaction { transaction ->
+            
                 var contentDTO = transaction.get(tsDoc!!).toObject(ContentDTO::class.java)
 
                 if(contentDTO!!.favorites.containsKey(uid)){
@@ -127,12 +129,12 @@ class DetailViewFragment : Fragment() {
                     //When the button is not clicked
                     contentDTO?.favoriteCount = contentDTO?.favoriteCount + 1
                     contentDTO?.favorites[uid!!] = true
+                    
                     favoriteAlarm(contentDTOs[position].uid!!)
 
                 }
                 transaction.set(tsDoc,contentDTO)
             }
-
         }
         fun favoriteAlarm(destinationUid : String) {
             var alarmDTO = AlarmDTO()

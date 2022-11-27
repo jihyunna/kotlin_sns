@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.snsproject.databinding.ActivityPostingBinding
+import com.example.snsproject.navigation.DetailViewFragment
 import com.example.snsproject.navigation.model.ContentDTO
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -40,6 +41,13 @@ class PostingActivity : AppCompatActivity() {
 
         binding.addphotoBtnUpload.setOnClickListener {
             contentUpload()
+        }
+
+        binding.addphotoBtnCancel.setOnClickListener{
+            startActivity(
+                Intent(this, DetailViewFragment::class.java)
+            )
+
         }
     }
 
