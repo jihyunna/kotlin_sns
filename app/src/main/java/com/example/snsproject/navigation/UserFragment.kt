@@ -22,9 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_user.view.*
-import androidx.recyclerview.widget.LinearLayoutManager
-
-
+import kotlinx.android.synthetic.main.fragment_user.*
 
 
 class UserFragment : Fragment(){
@@ -34,9 +32,6 @@ class UserFragment : Fragment(){
     var auth : FirebaseAuth? = null
     var currentUserUid : String? = null
 
-    companion object {
-        var PICK_PROFILE_FROM_ALBUM = 10
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentView = LayoutInflater.from(activity).inflate(R.layout.fragment_user, container, false)
@@ -69,6 +64,12 @@ class UserFragment : Fragment(){
                 requestFollow()
             }
         }
+
+//        account_tv_following_count.setOnClickListener{
+//            var intent = Intent(context,FollowFragment::class.java)
+//            startActivity(intent)
+//        }
+
         fragmentView?.account_reyclerview?.adapter = UserFragmentRecyclerViewAdapter()
         fragmentView?.account_reyclerview?.layoutManager = GridLayoutManager(requireActivity(), 3)
 
@@ -90,7 +91,7 @@ class UserFragment : Fragment(){
                 fragmentView?.account_tv_follower_count?.text = followDTO?.followerCount?.toString()
                 if(followDTO?.followers?.containsKey(currentUserUid!!)){
                     fragmentView?.account_btn_follow_signout?.text = getString(R.string.follow_cancel)
-                    //fragmentView?.account_btn_follow_signout?.background?.BlendModeColorFilterCompat.createBlendModeColorFilterCompat(R.color.colorLightGray, PorterDuff.Mode.MULTIPLY)
+
                 }else{
                     if(uid != currentUserUid){
                         fragmentView?.account_btn_follow_signout?.text = getString(R.string.follow)

@@ -1,6 +1,5 @@
 package com.example.snsproject.navigation.model
 
-import java.sql.Timestamp
 
 data class AlarmDTO(
     var destinationUid : String? = null,

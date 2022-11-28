@@ -55,7 +55,7 @@ class AlarmFragment : Fragment() {
                         view.commentviewitem_textview_profile.text = str_0
                     }
                     1 -> {
-                        val str_0 = alarmDTOList[p1].userId + " " + getString(R.string.alarm_comment) + " of " + alarmDTOList[p1].message
+                        val str_0 = alarmDTOList[p1].userId + " " + getString(R.string.alarm_comment) + " : " + alarmDTOList[p1].message
                         view.commentviewitem_textview_profile.text = str_0
                     }
                     2 -> {

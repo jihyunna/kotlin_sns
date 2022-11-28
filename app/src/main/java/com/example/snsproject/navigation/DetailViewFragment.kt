@@ -25,8 +25,6 @@ class DetailViewFragment : Fragment() {
     var uid : String? = null
     lateinit var binding: FragmentDetailBinding
 
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentDetailBinding.inflate(inflater,container,false)
@@ -103,6 +101,10 @@ class DetailViewFragment : Fragment() {
                 fragment.arguments = bundle
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.main_content, fragment)?.commit()
+                var photoPickerIntent = Intent(Intent.ACTION_PICK)
+                photoPickerIntent.type = "image/*"
+
+
             }
 
             viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->

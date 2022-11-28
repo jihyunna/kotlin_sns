@@ -11,6 +11,7 @@
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/drawable/menu_selector_color.xml" value="0.228125" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_comment.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_follow.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_posting.xml" value="0.30052083333333335" />
@@ -19,6 +20,7 @@
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/activity_storage.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/fragment_alarm.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/fragment_detail.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/fragment_follow.xml" value="0.2796875" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/fragment_grid.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/fragment_user.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/82104/Documents/SNSproject_2022/SNSproject/app/src/main/res/layout/item.xml" value="0.20208333333333334" />

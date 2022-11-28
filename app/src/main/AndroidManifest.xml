@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SNSproject">
         <activity
+            android:name=".navigation.FollowActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -35,10 +38,10 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_baseline_notifications_24"/>
+            android:resource="@drawable/ic_baseline_notifications_24" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent"/>
+            android:resource="@color/colorAccent" />
     </application>
 
 </manifest>

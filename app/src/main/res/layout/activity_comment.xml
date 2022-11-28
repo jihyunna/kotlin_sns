@@ -24,29 +24,36 @@
         android:layout_height="1dp">
 
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="30dp"
-        android:layout_below="@+id/toolbar_division"
         android:id="@+id/comment_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_division"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="30dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
     <Button
         android:id="@+id/comment_btn_send"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/comment_recyclerview"
-        android:layout_margin="10dp"
-        android:backgroundTint="#979A9A9A"
-        android:text="댓글 달기"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/comment_recyclerview"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#979A9A9A"
+        android:text="댓글 달기" />
+
     <EditText
         android:id="@+id/comment_edit_message"
-        android:layout_toLeftOf="@+id/comment_btn_send"
-        android:layout_below="@+id/comment_recyclerview"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/comment_recyclerview"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toLeftOf="@+id/comment_btn_send" />
 </RelativeLayout>
